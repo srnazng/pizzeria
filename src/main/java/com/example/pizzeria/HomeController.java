@@ -1,14 +1,11 @@
 package com.example.pizzeria;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
-public class MainController {
-    @FXML
-    private Label welcomeText;
+public class HomeController {
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onChicagoClick(){
+        System.out.println("click");
     }
 }
