@@ -1,6 +1,6 @@
 package com.example.pizzeria;
 
-public class BuildYourOwn extends Pizza{
+public class BBQChicken extends Pizza{
     @Override
     public boolean add(Object obj) {
         return false;

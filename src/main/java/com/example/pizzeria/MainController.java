@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class HomeController {
+public class MainController {
     @FXML
     protected void onChicagoClick(){
         try {
