@@ -22,11 +22,11 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <ChoiceBox prefWidth="150.0">
+            <ComboBox prefWidth="150.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
-            </ChoiceBox>
+            </ComboBox>
             <Label text="Order Total (tax included) $">
                <HBox.margin>
                   <Insets left="20.0" top="5.0" />
