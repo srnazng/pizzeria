@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,12 +14,15 @@ import java.util.ArrayList;
 public class ChicagoController {
     private ArrayList<Topping> availableToppings;
     private ArrayList<Topping> selectedToppings;
+    private double price;
     @FXML
     private ComboBox chicagoTypeSelect;
     @FXML
     private ListView chicagoAvailableToppings, chicagoSelectedToppings;
     @FXML
     private ImageView chicagoImageView;
+    @FXML
+    private TextField chicagoCrust;
     @FXML
     private ToggleGroup chicagoSize;
 
@@ -30,19 +34,22 @@ public class ChicagoController {
             chicagoAvailableToppings.setDisable(true);
             chicagoSelectedToppings.setDisable(true);
             if(pizzaType.equals("BBQ Chicken")){
-                selectedToppings = BBQChicken.getToppings();
-                availableToppings.removeAll(BBQChicken.getToppings());
+                selectedToppings = BBQChicken.getBBQChickenToppings();
+                availableToppings.removeAll(BBQChicken.getBBQChickenToppings());
                 chicagoImageView.setImage(new Image("file:./src/main/resources/assets/chicago_bbq_chicken.jpg"));
+                chicagoCrust.setText(Crust.PAN.toString());
             }
             else if(pizzaType.equals("Deluxe")){
-                selectedToppings = Deluxe.getToppings();
-                availableToppings.removeAll(Deluxe.getToppings());
+                selectedToppings = Deluxe.getDeluxeToppings();
+                availableToppings.removeAll(Deluxe.getDeluxeToppings());
                 chicagoImageView.setImage(new Image("file:./src/main/resources/assets/chicago_deluxe.jpeg"));
+                chicagoCrust.setText(Crust.DEEP_DISH.toString());
             }
             else if(pizzaType.equals("Meatzza")) {
-                selectedToppings = Meatzza.getToppings();
-                availableToppings.removeAll(Meatzza.getToppings());
+                selectedToppings = Meatzza.getMeatzzaToppings();
+                availableToppings.removeAll(Meatzza.getMeatzzaToppings());
                 chicagoImageView.setImage(new Image("file:./src/main/resources/assets/chicago_meatzza.jpeg"));
+                chicagoCrust.setText(Crust.STUFFED.toString());
             }
         }
         else{
@@ -50,6 +57,7 @@ public class ChicagoController {
             chicagoAvailableToppings.setDisable(false);
             chicagoSelectedToppings.setDisable(false);
             chicagoImageView.setImage(new Image("file:./src/main/resources/assets/chicago_pizza.jpeg"));
+            chicagoCrust.setText(Crust.PAN.toString());
         }
         updateToppingLists();
     }
@@ -57,7 +65,7 @@ public class ChicagoController {
     @FXML
     public void addTopping(){
         Topping topping = (Topping) chicagoAvailableToppings.getSelectionModel().getSelectedItem();
-        if(topping != null){
+        if(topping != null && selectedToppings.size() < 7){
             availableToppings.remove(topping);
             selectedToppings.add(topping);
             chicagoAvailableToppings.setItems(FXCollections.observableArrayList(availableToppings));

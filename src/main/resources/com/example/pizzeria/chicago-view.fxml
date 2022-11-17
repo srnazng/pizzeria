@@ -43,7 +43,7 @@
                               <Insets top="5.0" />
                            </padding>
                         </Label>
-                        <TextField editable="false" text="Pan">
+                        <TextField fx:id="chicagoCrust" editable="false" text="Pan">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>

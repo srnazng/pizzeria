@@ -8,7 +8,14 @@ public abstract class Pizza implements Customizable {
     private Size size;
     public abstract double price();
 
-    protected void setToppings(ArrayList<Topping> list){
+    public Pizza(ArrayList<Topping> list){
+        size = Size.MEDIUM;
         toppings = list;
     }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public ArrayList<Topping> getToppings(){ return toppings; }
 }

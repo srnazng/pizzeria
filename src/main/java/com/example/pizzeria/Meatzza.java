@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Meatzza extends Pizza{
+    public static final double SMALL_PRICE = 15.99;
+    public static final double MED_PRICE = 17.99;
+    public static final double LARGE_PRICE = 19.99;
+
     public Meatzza(){
-        setToppings(new ArrayList<>(List.of(new Topping[]{Topping.PEPPERONI, Topping.SAUSAGE, Topping.HAM})));
+        super(new ArrayList<>(List.of(new Topping[]{Topping.PEPPERONI, Topping.SAUSAGE, Topping.HAM})));
     }
-    public static ArrayList<Topping> getToppings(){
+    public static ArrayList<Topping> getMeatzzaToppings(){
         return new ArrayList<>(List.of(new Topping[]{Topping.PEPPERONI, Topping.SAUSAGE, Topping.HAM}));
     }
     @Override
@@ -22,6 +26,9 @@ public class Meatzza extends Pizza{
 
     @Override
     public double price() {
-        return 0;
+        Size size = getSize();
+        if(size == Size.SMALL) return SMALL_PRICE;
+        if(size == Size.MEDIUM) return MED_PRICE;
+        return LARGE_PRICE;
     }
 }
