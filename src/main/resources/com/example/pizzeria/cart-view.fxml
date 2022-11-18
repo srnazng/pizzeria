@@ -19,7 +19,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <TextField editable="false">
+            <TextField fx:id="orderNumber" editable="false">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -40,7 +40,7 @@
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin></Label>
-            <TextField editable="false" prefWidth="125.0">
+            <TextField fx:id="subtotal" editable="false" prefWidth="125.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></TextField>
@@ -48,12 +48,12 @@
                <HBox.margin>
                   <Insets left="20.0" top="5.0" />
                </HBox.margin></Label>
-            <TextField editable="false" prefWidth="125.0">
+            <TextField fx:id="salesTax" editable="false" prefWidth="125.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" prefWidth="125.0" text="Remove Pizza">
+            <Button mnemonicParsing="false" prefWidth="125.0" text="Remove Pizza" onMouseClicked="#removePizza">
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
@@ -70,17 +70,17 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <TextField editable="false" prefWidth="125.0">
+            <TextField fx:id="orderTotal" editable="false" prefWidth="125.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" prefWidth="125.0" text="Place Order">
+            <Button mnemonicParsing="false" prefWidth="125.0" text="Place Order" onMouseClicked="#placeOrder">
                <HBox.margin>
                   <Insets left="77.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefWidth="125.0" text="Clear Order">
+            <Button mnemonicParsing="false" prefWidth="125.0" text="Clear Order" onMouseClicked="#clearOrder">
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>

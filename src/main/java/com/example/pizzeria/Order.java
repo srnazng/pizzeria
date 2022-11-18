@@ -9,6 +9,11 @@ public class Order implements Customizable{
     private boolean valid;
     private ArrayList<Pizza> pizzaList;
     private int orderNumber;
+    private static final double SALES_TAX_RATE = 0.06625;
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
 
     public Order(){
         completed = false;
@@ -17,23 +22,11 @@ public class Order implements Customizable{
         pizzaList = new ArrayList<>();
     }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
+    public void clear(){
+        pizzaList = new ArrayList<>();
     }
 
-    public void setPizzaList(ArrayList<Pizza> pizzaList) {
-        this.pizzaList = pizzaList;
-    }
-
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public ArrayList<Pizza> getPizzaList() {
+    public ArrayList<Pizza> getPizzaList(){
         return pizzaList;
     }
 
@@ -45,16 +38,28 @@ public class Order implements Customizable{
         return list;
     }
 
+    public double getSubtotal(){
+        double amount = 0;
+        for(Pizza p : pizzaList){
+            amount += p.price();
+        }
+        return amount;
+    }
+
+    public double getSalesTax(){
+        return getSubtotal() * SALES_TAX_RATE;
+    }
+
+    public double getTotal(){
+        return getSubtotal() + getSalesTax();
+    }
+
     public void setInvalid(){
         valid = false;
     }
 
     public boolean isValid(){
         return valid;
-    }
-
-    public int getOrderNumber() {
-        return orderNumber;
     }
 
     public void finishOrder(){

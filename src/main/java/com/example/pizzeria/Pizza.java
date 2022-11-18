@@ -1,8 +1,10 @@
 package com.example.pizzeria;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public abstract class Pizza implements Customizable {
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     private ArrayList<Topping> toppings;
     private Crust crust;
     private Size size;
@@ -51,5 +53,24 @@ public abstract class Pizza implements Customizable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder("(");
+        if(isChicago){
+            str.append("Chicago Style - Pan), ");
+        }
+        else{
+            str.append("NY Style - Thin), ");
+        }
+        ArrayList<Topping> toppings = getToppings();
+        for(Topping t : toppings){
+            str.append(t).append(", ");
+        }
+
+        str.append(getSize().toString().toLowerCase()).append(", $").append(df.format(price()));
+
+        return str.toString();
     }
 }

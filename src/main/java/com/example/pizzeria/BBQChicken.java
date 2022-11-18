@@ -32,20 +32,7 @@ public class BBQChicken extends Pizza{
 
     @Override
     public String toString(){
-        StringBuilder str = new StringBuilder("BBQ Chicken (");
-        if(isChicago){
-            str.append("Chicago Style - Pan), ");
-        }
-        else{
-            str.append("NY Style - Thin), ");
-        }
-        ArrayList<Topping> toppings = getToppings();
-        for(Topping t : toppings){
-            str.append(t).append(", ");
-        }
-
-        str.append(getSize().toString().toLowerCase()).append(", $").append(price());
-
+        StringBuilder str = new StringBuilder("BBQ Chicken ").append(super.toString());
         return str.toString();
     }
 }
