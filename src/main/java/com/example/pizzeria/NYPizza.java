@@ -3,21 +3,25 @@ package com.example.pizzeria;
 public class NYPizza implements PizzaFactory{
     @Override
     public Pizza createDeluxe() {
-        return null;
+        Pizza pizza = new Deluxe(Crust.BROOKLYN, false);
+        return pizza;
     }
 
     @Override
     public Pizza createMeatzza() {
-        return null;
+        Pizza pizza = new Meatzza(Crust.THIN, false);
+        return pizza;
     }
 
     @Override
     public Pizza createBBQChicken() {
-        return null;
+        Pizza pizza = new BBQChicken(Crust.HAND_TOSSED, false);
+        return pizza;
     }
 
     @Override
     public Pizza createBuildYourOwn() {
-        return null;
+        Pizza pizza = new BuildYourOwn(Crust.HAND_TOSSED, false);
+        return pizza;
     }
 }
