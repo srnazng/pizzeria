@@ -27,13 +27,13 @@
                   </ComboBox>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                      <buttons>
-                        <RadioButton mnemonicParsing="false" text="Small">
-                           <toggleGroup>
+                        <RadioButton mnemonicParsing="false" text="Small" onAction="#updateSize">
+                           <toggleGroup >
                               <ToggleGroup fx:id="chicagoSize"/>
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Medium" toggleGroup="$chicagoSize" selected="true"/>
-                        <RadioButton mnemonicParsing="false" text="Large" toggleGroup="$chicagoSize" />
+                        <RadioButton mnemonicParsing="false" text="Medium" toggleGroup="$chicagoSize" selected="true" onAction="#updateSize"/>
+                        <RadioButton mnemonicParsing="false" text="Large" toggleGroup="$chicagoSize" onAction="#updateSize"/>
                      </buttons>
                   </ButtonBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -101,12 +101,12 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Label>
-            <TextField editable="false">
+            <TextField fx:id="chicagoPrice" editable="false">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" text="Add to Order">
+            <Button mnemonicParsing="false" text="Add to Order" onMouseClicked="#addToOrder">
                <HBox.margin>
                   <Insets left="200.0" />
                </HBox.margin>

@@ -1,25 +1,27 @@
 package com.example.pizzeria;
 
-import java.util.ArrayList;
-
 public class ChicagoPizza implements PizzaFactory{
     @Override
     public Pizza createDeluxe() {
-        return null;
+        Pizza pizza = new Deluxe(Crust.DEEP_DISH, true);
+        return pizza;
     }
 
     @Override
     public Pizza createMeatzza() {
-        return null;
+        Pizza pizza = new Meatzza(Crust.STUFFED, true);
+        return pizza;
     }
 
     @Override
     public Pizza createBBQChicken() {
-        return null;
+        Pizza pizza = new BBQChicken(Crust.PAN, true);
+        return pizza;
     }
 
     @Override
     public Pizza createBuildYourOwn() {
-        return null;
+        Pizza pizza = new BuildYourOwn(Crust.PAN, true);
+        return pizza;
     }
 }

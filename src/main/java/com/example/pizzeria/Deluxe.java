@@ -8,23 +8,13 @@ public class Deluxe extends Pizza{
     public static final double MED_PRICE = 16.99;
     public static final double LARGE_PRICE = 18.99;
 
-    public Deluxe(){
-        super(new ArrayList<>(List.of(new Topping[]{Topping.PEPPERONI, Topping.SAUSAGE,
-                Topping.MUSHROOMS, Topping.ONIONS, Topping.PEPPERS})));
+    public Deluxe(Crust crust, boolean isChicago){
+        super(crust, isChicago);
     }
 
     public static ArrayList<Topping> getDeluxeToppings(){
         return new ArrayList<>(List.of(new Topping[]{Topping.PEPPERONI, Topping.SAUSAGE,
                 Topping.MUSHROOMS, Topping.ONIONS, Topping.PEPPERS}));
-    }
-    @Override
-    public boolean add(Object obj) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object obj) {
-        return false;
     }
 
     @Override
@@ -33,5 +23,30 @@ public class Deluxe extends Pizza{
         if(size == Size.SMALL) return SMALL_PRICE;
         if(size == Size.MEDIUM) return MED_PRICE;
         return LARGE_PRICE;
+    }
+
+    public static double calculatePrice(Size size) {
+        if(size == Size.SMALL) return SMALL_PRICE;
+        if(size == Size.MEDIUM) return MED_PRICE;
+        return LARGE_PRICE;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder("Deluxe (");
+        if(isChicago){
+            str.append("Chicago Style - Pan), ");
+        }
+        else{
+            str.append("NY Style - Thin), ");
+        }
+        ArrayList<Topping> toppings = getToppings();
+        for(Topping t : toppings){
+            str.append(t).append(", ");
+        }
+
+        str.append(getSize().toString().toLowerCase()).append(", $").append(price());
+
+        return str.toString();
     }
 }
